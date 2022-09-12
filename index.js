@@ -1,8 +1,15 @@
 const express = require('express');
+require('./services/passport');
+// const authRoutes = require('./routes/authRoutes')
 const app = express();
 
-app.get('/', (req, res) =>
-    {res.send({bye: 'buddy'});});
+// authRoutes(app)
+
+require('./routes/authRoutes')(app)
+// app.get('/', (req, res) =>
+//     {res.send({bye: 'buddy'});});
+
+
 
 // if Heroku define port then use it, otherwise 5000
 const PORT = process.env.PORT || 5000;
